@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" );
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Oswald&display=swap" );
+
+/* FOR PARTICLES */
+#particles-js {
+    height: 100%;
+    background: #000;
+  }
+
+#particles-js2 {
+    height: 100%;
+    background: #000;
+  }
+
+  #particles-js3 {
+    height: 100%;
+    background: #000;
+  } 
+
+
+.projectContainer{
+
+    font-family: "Major Mono Display", monospace;
+    font-size: 50px;
+    font-weight: bold;
+    color: midnightblue;
+    padding: 30px;
+
+    position: absolute;
+    z-index: 10;
+    width: 1000px;
+    height: auto;
+    background: #fff;
+    opacity: 0.9;
+    top: 10%;
+    left: 10%;
+    margin: 100px 100px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 100;
+
+    justify-content: center;
+
+    
+}
+
+.line{
+    height: 8px;
+    width: 100%;
+    background-color: black;
+    margin: 15px 0px;
+    opacity: 1;
+
+}
+
+#projectInfo{
+    padding: 10px;
+    border: solid 5px black;
+    opacity: 1;
+
+    
+}
+
+
+#projectInfo a{
+    color: navy; 
+    text-decoration: none;
+}
+
+.projName{
+    font-family: "Major Mono Display", monospace;
+    font-size: 40px;
+}
+
+.projDesc{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    color: darkblue;
+}
+
+.projType, .projYear{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    color: indigo;
+}
+
+

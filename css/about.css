@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+/* FOR ABOUT PAGE */
+.aboutMain{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 100px 1fr;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    /* background:  linear-gradient( khaki, lightgoldenrodyellow); */
+    /* background: linear-gradient(#e66465, #9198e5); */
+    background: linear-gradient(#eeaeca, #94bbe9);
+    
+}
+
+p{
+    color: #ab2324;
+}
+
+#karlImg{
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+
+.intro{
+    color: black;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 80px;
+    margin-top: 100px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.line{
+    height: 8px;
+    width: 100%;
+    background-color: #00088a;
+    margin: 15px 0px;
+
+}
+
+#introAbout{
+    text-align: left;
+    font-size: 25px;
+    text-transform: none;
+    font-weight: 500;
+}
+
+.contacts{
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#contactAbout{
+    cursor: pointer;
+    display: flex;
+    text-transform: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+} 
+
+#contactAbout a{
+    padding: 15px;
+}
+
+.organizations{
+    grid-column: 1/3;
+    grid-row: 3/4;
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 70px;
+    display: flex;
+
+    justify-content: center;
+
+}
+
+#org{
+    position: relative;
+    top:30px
+}
+
+div #orgAbout{
+    grid-column: 1/2;
+    grid-row: 4/5;
+
+    text-transform: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+
+    display: inline;
+    padding-left: 30px;
+    
+} 
+
+.orgImg{
+    height: 65px;
+    width: 65px;
+    display: inline;
+}
+
+.skills{
+    grid-column: 1/2;
+    grid-row: 4/5;
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 50px;
+}
+
+#skillsAbout{
+    grid-column: 1/2;
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+    text-transform: none;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 500;
+} 
+
+.skillLevel{
+    background-color: darkseagreens;
+    color: maroon;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#skillsAbout div{
+    padding: 10px;
+}
+
+.hobbies{
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 50px;
+}
+
+#hobbiesAbout{
+    text-align: left;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 10px 50px;
+    grid-column: 2/3;
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
+}
+
+.hobbiesImg{
+    height: 55px;
+    width: 55px;
+    justify-self: center;
+}
+
+#skillsAbout div::first-letter, #hobbiesAbout div::first-letter{
+    text-transform: capitalize;
+}

@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@600&display=swap");
+
+.educationMain{
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+.side1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background: linear-gradient(#9a0fa0, #4aff42);
+}
+
+.side2{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background: linear-gradient(#4aff42, #9a0fa0);
+}
+
+.educationContainer{
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    font-family: 'Source Serif Pro', serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #996515;
+    text-transform: uppercase;
+    padding: 30px;
+
+    text-align: center;
+
+    
+}
+
+.line{
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(45deg,#C5B358,  #DAA520);
+    margin: 15px 0px;
+
+}
+
+#educationInfo{
+    cursor: pointer;
+    color: black;
+    padding: 10px;
+    border: solid 5px #DAA520;
+    border-right: solid 5px #CFB53B;
+    border-bottom: solid 5px #CFB53B;
+    padding: 50px;
+    text-transform: none;
+    
+}
+
+.educ_logo{
+    height: 100px;
+    width: 100px;
+}
+
+.educName{
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.educLevel{
+    font-size: 30px;
+    font-weight: 600;
+    color: #996515;
+}
+
+.educCourse, .educStrand, .educAward{
+    font-size: 30px;
+    font-weight: 400;
+    color: #996515;
+}
+
+.educYear{
+    font-size: 25px;
+    font-weight: 100;
+    color: #DAA520;
+    
+}

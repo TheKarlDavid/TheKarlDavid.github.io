@@ -5,8 +5,8 @@
     <title>
       Welcome to my resume
     </title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/projects.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="education.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
@@ -24,9 +24,9 @@
             <a href="education.html">Education</a>
             <input type="checkbox" id="btn-1" />
             <ul class="subnav">
-              <li><a href="education.html#Elementary">Elementary</a></li>
-              <li><a href="#education.html#SHS">High School</a></li>
-              <li><a href="#education.html#College">College</a></li>
+              <li><a href="#Elementary">Elementary</a></li>
+              <li><a href="#SHS">High School</a></li>
+              <li><a href="#College">College</a></li>
             </ul>
           </li>
           <li><a href="projects.html">Projects</a></li>
@@ -40,20 +40,19 @@
       </nav>
     </header>
 
-    <main>
-      <div id="particles-js">
-        <div class="projectContainer">
-          Projects
-          <div class="line"></div>
-          <div id="projectInfo"></div>
+    <main class="educationMain">
+      <div class="side1"></div>
+
+      <div class="educationContainer">
+        Education
+        <div class="line"></div>
+        <div id="educationInfo">
+
         </div>
       </div>
-      <div  id="particles-js2"></div>
-      <div  id="particles-js3"></div>
+
+      <div class="side2"></div>
     </main>
-    
-    <!-- <div id="projectInfo"></div> -->
-    
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -64,8 +63,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
 
-    <script src="../js/particles.js"></script>
-    <script src="../js/projects.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="education.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

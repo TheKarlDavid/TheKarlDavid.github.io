@@ -53,39 +53,4 @@
   
 
   
-    // db.collection("organizations").add(newObject).then(function(doc) {
-    //     console.log("Document written with UID: ", doc.id);
-    // })
-    // .catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    // });
-  
-    // db.collection("organizations").doc("3hEeJ37QpmkcHrvrFKjU").delete().then(function(){
-    //     console.log("Item deleted");
-    // })
-    // .catch(function(error){
-    //     console.log("Error in deleting item :"+errpr);
-    // });
-  
-    var email = "karl_david@dlsu.edu.ph";
-    var password = "password1026";
-  
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(function (user) {
-        console.log("user signed in");
-  
-        var user = firebase.auth().currentUser;
-        if (user != null) {
-          console.log(user.email);
-        }
-      })
-      .catch(function (error) {
-        if (error.code == "auth/wrong-password") {
-          alert("wrong password");
-        } else {
-          alert(err.message);
-        }
-    });
 

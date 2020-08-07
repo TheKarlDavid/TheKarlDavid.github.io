@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="edit.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+    <body>
+        <div class="box">
+            <h3>Login</h3>
+            <form>
+                <div class="inputBox">
+                    <input id="email" type="text" name="" required="">
+                    <label>email</label>
+                </div>
+
+                <div class="inputBox">
+                    <input id="password" type="password" name="" required="">
+                    <label>password</label>
+                </div>
+                <input id="login" type="submit" name="" value="Login">
+                <!-- <input type="submit" name="" value="Login" onclick="login()"> -->
+            </form>
+        </div>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+        <script src="edit.js"></script>
+    </body>
+</html>

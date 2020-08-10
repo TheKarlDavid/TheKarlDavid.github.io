@@ -18,29 +18,19 @@
       snapshot.forEach((doc) => {
         if(doc.data().awards === undefined){
             if(doc.data().year_end === undefined){
-              document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo" id="College" src="${doc.data().logo}"></>
+              document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo"src="${doc.data().logo}"></div>
               <div class="educName">${doc.data().school}</div>
               <div class="educLevel">${doc.data().education}</div>
               <div class="educCourse">Course: ${doc.data().degree}</div>
               <div class="educYear">A.Y. ${doc.data().year_start} - present</div><br>`;
             }
-            else{
-              if(doc.data().education === "Elementary"){
-                document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo" id="Elementary" src="${doc.data().logo}"></div>
-                <div class="educName">${doc.data().school}</div>
-                <div class="educLevel">${doc.data().education}</div>
-                <div class="educYear">A.Y. ${doc.data().year_start} - ${doc.data().year_end}</div><br>`;
-              }
-              else{
-                document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo" id="JHS" src="${doc.data().logo}"></div>
-                <div class="educName">${doc.data().school}</div>
-                <div class="educLevel">${doc.data().education}</div>
-                <div class="educYear">A.Y. ${doc.data().year_start} - ${doc.data().year_end}</div><br>`;
-              }  
-            }
+            document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo" src="${doc.data().logo}"></div>
+            <div class="educName">${doc.data().school}</div>
+            <div class="educLevel">${doc.data().education}</div>
+            <div class="educYear">A.Y. ${doc.data().year_start} - ${doc.data().year_end}</div><br>`;
         }
         else{
-          document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo" id="SHS" src="${doc.data().logo}"></div>
+          document.getElementById('educationInfo').innerHTML+=`<div><img class="educ_logo" src="${doc.data().logo}"></div>
           <div class="educName">${doc.data().school}</div>
           <div class="educLevel">${doc.data().education}</div>
           <div class="educStrand">Strand: ${doc.data().strand}</div>

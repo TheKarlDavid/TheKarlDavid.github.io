@@ -31,7 +31,9 @@
 
   db.collection("organizations").get().then((snapshot) => {
     snapshot.forEach((doc) => {
-      document.getElementById('orgAbout').innerHTML+=`<div id="orgs"><img class="orgImg" src="${doc.data().logo}"><br>${doc.data().name}</div>`;
+      document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${doc.data().logo}">
+      <span id="orgName">${doc.data().name}</span>
+      <span id="orgPosition">${doc.data().position}</span>`;
 
     });
   });

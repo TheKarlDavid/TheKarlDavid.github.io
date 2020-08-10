@@ -98,19 +98,41 @@ div #orgAbout{
     grid-row: 4/5;
 
     text-transform: none;
-    text-align: center;
+    text-align: left;
+    justify-content: center;
     font-size: 25px;
     font-weight: 500;
-
-    display: inline;
     padding-left: 30px;
-    
+    display: grid;
+    grid-template-columns: 100px 500px;
+    grid-template-rows: 50px 50px;
 } 
 
 .orgImg{
+    margin: 15px;
     height: 65px;
     width: 65px;
-    display: inline;
+    grid-column: 1/2;
+    grid-row: 1/3;
+    align-items: center;
+    
+    
+}
+
+#orgName{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#orgPosition{
+    grid-column: 2/3;
+    grid-row: 2/3; 
+    color: maroon;
+    
+}
+
+#orgs{
+    justify-content: center;
 }
 
 .skills{
@@ -181,6 +203,6 @@ div #orgAbout{
     justify-self: center;
 }
 
-#skillsAbout div::first-letter, #hobbiesAbout div::first-letter{
+#skillsAbout div::first-letter, #hobbiesAbout div::first-letter,#orgPosition::first-letter{
     text-transform: capitalize;
 }

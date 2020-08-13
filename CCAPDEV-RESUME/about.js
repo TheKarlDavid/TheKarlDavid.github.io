@@ -24,8 +24,7 @@
   db.collection("contacts").get().then((snapshot) => {
     snapshot.forEach((doc) => {
       // document.getElementById('contactAbout').innerHTML+=`<a href="${doc.data().contact}"><img src="${doc.data().logo}" width="75" height="75px">${doc.data().username}</a>`;  
-      document.getElementById('contactAbout').innerHTML+=`<img class="contact_logo" src="${doc.data().logo}" width="75" height="75px">${doc.data().username}`; 
-      document.getElementById('contactAbout').innerHTML+=`<a href="${doc.data().contact}"${doc.data().username}></a>`   
+      document.getElementById('contactAbout').innerHTML+=`<a href="${doc.data().contact}"${doc.data().username}><img class="contact_logo" src="${doc.data().logo}" width="75" height="75px">${doc.data().username}</a>`;   
     });
   });
 

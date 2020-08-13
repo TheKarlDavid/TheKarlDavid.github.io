@@ -16,39 +16,39 @@ var firebaseConfig = {
   
 // LOGIN
 
-//   document.getElementById("login").addEventListener("click", function(e){
-//     e.preventDefault();
+  document.getElementById("login").addEventListener("click", function(e){
+    e.preventDefault();
 
-//     let email = $("#email").val()
-//     let password = $("#password").val()
+    let email = $("#email").val()
+    let password = $("#password").val()
 
-//     // console.log("email is "+email+" and pass is "+password)
+    // console.log("email is "+email+" and pass is "+password)
 
-//     firebase
-//       .auth()
-//       .signInWithEmailAndPassword(email, password)
-//       .then(function (user) {
-//         console.log("user signed in");
-//         // document.getElementById("bodyLogin").style.display="none"
-//         $( "#bodyLogin" ).hide();
-//         $( "#bodyEdit" ).show();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(function (user) {
+        console.log("user signed in");
+        // document.getElementById("bodyLogin").style.display="none"
+        $( "#bodyLogin" ).hide();
+        $( "#bodyEdit" ).show();
   
-//         var user = firebase.auth().currentUser;
-//         if (user != null) {
-//           console.log(user.email);
-//         }
-//       })
-//       .catch(function (error) {
-//         if (error.code == "auth/wrong-password") {
-//         //   alert("wrong password");
-//         // console.log("wrong password")
-//           document.getElementById("warning").style.visibility="visible"
-//         } else {
-//           alert(error.message);
-//           document.getElementById("warning").style.visibility="visible"
-//         }
-//     });
-// })
+        var user = firebase.auth().currentUser;
+        if (user != null) {
+          console.log(user.email);
+        }
+      })
+      .catch(function (error) {
+        if (error.code == "auth/wrong-password") {
+        //   alert("wrong password");
+        // console.log("wrong password")
+          document.getElementById("warning").style.visibility="visible"
+        } else {
+          alert(error.message);
+          document.getElementById("warning").style.visibility="visible"
+        }
+    });
+})
 
 
 

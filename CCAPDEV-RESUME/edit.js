@@ -16,39 +16,39 @@ var firebaseConfig = {
   
 // LOGIN
 
-  document.getElementById("login").addEventListener("click", function(e){
-    e.preventDefault();
+//   document.getElementById("login").addEventListener("click", function(e){
+//     e.preventDefault();
 
-    let email = $("#email").val()
-    let password = $("#password").val()
+//     let email = $("#email").val()
+//     let password = $("#password").val()
 
-    // console.log("email is "+email+" and pass is "+password)
+//     // console.log("email is "+email+" and pass is "+password)
 
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(function (user) {
-        console.log("user signed in");
-        // document.getElementById("bodyLogin").style.display="none"
-        $( "#bodyLogin" ).hide();
-        $( "#bodyEdit" ).show();
+//     firebase
+//       .auth()
+//       .signInWithEmailAndPassword(email, password)
+//       .then(function (user) {
+//         console.log("user signed in");
+//         // document.getElementById("bodyLogin").style.display="none"
+//         $( "#bodyLogin" ).hide();
+//         $( "#bodyEdit" ).show();
   
-        var user = firebase.auth().currentUser;
-        if (user != null) {
-          console.log(user.email);
-        }
-      })
-      .catch(function (error) {
-        if (error.code == "auth/wrong-password") {
-        //   alert("wrong password");
-        // console.log("wrong password")
-          document.getElementById("warning").style.visibility="visible"
-        } else {
-          alert(error.message);
-          document.getElementById("warning").style.visibility="visible"
-        }
-    });
-})
+//         var user = firebase.auth().currentUser;
+//         if (user != null) {
+//           console.log(user.email);
+//         }
+//       })
+//       .catch(function (error) {
+//         if (error.code == "auth/wrong-password") {
+//         //   alert("wrong password");
+//         // console.log("wrong password")
+//           document.getElementById("warning").style.visibility="visible"
+//         } else {
+//           alert(error.message);
+//           document.getElementById("warning").style.visibility="visible"
+//         }
+//     });
+// })
 
 
 
@@ -87,7 +87,7 @@ db.collection("organizations").get().then((snapshot) => {
     document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${doc.data().logo}">
     <div id="orgName">${doc.data().name}</div>
     <div id="orgPosition">${doc.data().position}</div>
-    <button class="delBtnOrg" id="${doc.id}" onclick=deleteOrg(this)>Delete</button>`;    
+    <button class="delBtnOrg" id="${doc.id}" onclick=deleteOrg(this)>Delete</button>`;     
   });
 });
 
@@ -132,7 +132,7 @@ db.collection("hobbies").get().then((snapshot) => {
         console.log("introduction edited");
         introModal.style.display='none';
         clearEditIntro();
-        windows.location.reload();
+        // windows.location.reload();
       }
     });
   }
@@ -220,7 +220,8 @@ function openModalOrg(){
     });  
       orgModal.style.display='none';
       clearAddOrg();
-      window.location.reload();
+      displayOrgData();
+      // window.location.reload();
     }
 
   });
@@ -268,6 +269,7 @@ function openModalHobby(){
       });  
       hobbyModal.style.display='none';
       clearAddHobby();
+      displayHobbyData();
     }
 
   });
@@ -355,6 +357,7 @@ function outsideClickHobby(e){
           });  
           modal.style.display='none';
           clearAddEduc();
+          displayEducData()
         }
 
   
@@ -418,6 +421,7 @@ function openModalProj(){
       });  
       projModal.style.display='none';
       clearAddProj();
+      displayProjectData();
     }
 
 
@@ -482,8 +486,9 @@ function deleteOrg(elem){
   db.collection("organizations").doc(elem.id).delete().then(function(){
     console.log("Organization item deleted "+elem.id);
     alert("Organization Doc ID:" + elem.id+ " deleted");
-    window.location.reload();
-    // displayData();
+    displayOrgData();
+    // window.location.reload();
+    
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -494,7 +499,8 @@ function deleteHobby(elem){
   db.collection("hobbies").doc(elem.id).delete().then(function(){
     console.log("Hobby item deleted "+elem.id);
     alert("Hobby Doc ID:" + elem.id+ " deleted");
-    window.location.reload();
+    displayHobbyData();
+    // window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -505,7 +511,8 @@ function deleteEduc(elem){
   db.collection("educations").doc(elem.id).delete().then(function(){
     console.log("Education item deleted "+elem.id);
     alert("Education Doc ID:" + elem.id+ " deleted");
-    window.location.reload();
+    displayEducData()
+    // window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -516,7 +523,8 @@ function deleteProj(elem){
   db.collection("projects").doc(elem.id).delete().then(function(){
     console.log("Project item deleted "+elem.id);
     alert("Project Doc ID:" + elem.id+ " deleted");
-    window.location.reload();
+    displayProjectData();
+    // window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -524,35 +532,116 @@ function deleteProj(elem){
 }
 
 
-// function displayData(){
-//   var query = firebase.firestore().collection('projects').orderBy("year_start","desc");
 
-//   query.onSnapshot(function(snapshot){
-//     $("div#bodyEdit").empty();
 
-//     snapshot.docChanges
 
-//     snapshot.docChanges().forEach(function(change) {
-//       if (change.type === "removed") {
-//           console.log(change.doc.id);
-//       }
-//       else {
-//         console.log("a");
-//       }
-//     });
+function displayOrgData(){
+  var query = firebase.firestore().collection('organizations');
 
-//   });
-// }
+  query.onSnapshot(function(snapshot){
+    $("div#orgAbout").empty();
 
-// db.collection("projects").orderBy("year_start","desc").get().then((snapshot) => {
-//   snapshot.forEach((doc) => {
-//       document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${doc.id}" onclick=deleteProj(this)>Delete</button>
-//       <div class="projName"><a href="${doc.data().link}">${doc.data().name}</a></div>
-//       <div class="projDesc">${doc.data().desc}</div>
-//       <div class="projType">Type:   ${doc.data().type}</div>
-//       <div class="projYear">Year Created:   ${doc.data().year_start}</div><br>`;
-//   });
-// });
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === "removed") {
+          console.log(change.doc.id);
+      }
+      else {
+        console.log("a");
+        var data = change.doc.data();
+        document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${data.logo}">
+        <div id="orgName">${data.name}</div>
+        <div id="orgPosition">${data.position}</div>
+        <button class="delBtnOrg" id="${data.id}" onclick=deleteOrg(this)>Delete</button>`;  
+
+        console.log(data.id);
+        console.log(data.name);
+      }
+    });
+    
+  });
+}
+
+function displayHobbyData(){
+  var query = firebase.firestore().collection('hobbies');
+
+  query.onSnapshot(function(snapshot){
+    $("div#hobbiesAbout").empty();
+
+
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === "removed") {
+          console.log(change.doc.id);
+      }
+      else {
+        console.log("a");
+        var data = change.doc.data();
+        document.getElementById('hobbiesAbout').innerHTML+=`<div>${data.name}</div>`;  
+        document.getElementById('hobbiesAbout').innerHTML+=`<img class="hobbiesImg" src= "${data.logo}">`;  
+        document.getElementById('hobbiesAbout').innerHTML+=`<button class="delBtnHobby" id="${data.id}" onclick=deleteHobby(this)>Delete</button>`;
+
+        console.log(data.id);
+        console.log(data.name);
+      }
+    });
+    
+  });
+}
+
+function displayEducData(){
+  var query = firebase.firestore().collection('educations').orderBy("year_start","desc");
+
+  query.onSnapshot(function(snapshot){
+    $("div#educationInfo").empty();
+
+
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === "removed") {
+          console.log(change.doc.id);
+      }
+      else {
+        console.log("a");
+        var data = change.doc.data();
+        document.getElementById('educationInfo').innerHTML+=`<button class="delBtnEduc"  id="${data.id}" onclick=deleteEduc(this)>Delete</button>
+        <div><img class="educ_logo" src="${data.logo}"></div>
+        <div class="educName">${data.school}</div>
+        <div class="educLevel">${data.education}</div>
+        <div class="educYear">A.Y. ${data.year_start} - ${data.year_end}</div><br>`;
+
+        console.log(data.id);
+        console.log(data.name);
+      }
+    });
+    
+  });
+}
+
+function displayProjectData(){
+  var query = firebase.firestore().collection('projects').orderBy("year_start","desc");
+
+  query.onSnapshot(function(snapshot){
+    $("div#projectInfo").empty();
+
+
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === "removed") {
+          console.log(change.doc.id);
+      }
+      else {
+        console.log("a");
+        var data = change.doc.data();
+        document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${data.id}" onclick=deleteProj(this)>Delete</button>
+        <div class="projName"><a href="${data.link}">${data.name}</a></div>
+        <div class="projDesc">${data.desc}</div>
+        <div class="projType">Type:   ${data.type}</div>
+        <div class="projYear">Year Created:   ${data.year_start}</div><br>`;
+        console.log(data.id);
+        console.log(data.name);
+      }
+    });
+    
+  });
+}
+
 
 
 

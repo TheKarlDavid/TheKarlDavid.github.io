@@ -34,47 +34,180 @@
                 </div>
             </nav>
 
-            
 
             <div class="editMain">
-                <div class="top"></div>
+                <div class="aboutMain">
+                    <img id="karlImg" src="images/karl.png">
+              
+                    <div class="intro">
+                     <button id="editIntro">Edit</button>
+                      <p>About me</p>
+                      <div class="lineAbout"></div>
+                      <div id="introAbout"></div>
+                    </div>
+              
+                    <div class="contacts">
+                     
+                      <p>Contacts</p>
+                      <div class="lineAbout"></div>
+                      <div id="contactAbout"></div>
+                    </div>
+              
+                    <div class="organizations">
+                      <span id="org"><p>Organization:</p></span>
+                      <div id="orgAbout"></div>
+                      <button id="addOrg">Add</button>
+                    </div>
+                    
+                    <div class="skills">
+                        <button id="addSkill">Add</button>
+                      <p>Technical Skills</p>
+                      <div class="lineAbout"></div>
+                      <div id="skillsAbout"></div>
+                    </div>
+              
+                    
+              
+                    <div class="hobbies">
+                      <button id="addHobby">Add</button>
+                      <p>Hobbies</p>
+                      <div class="lineAbout"></div>
+                      <div id="hobbiesAbout"></div>
+                    </div>
+              
+                </div>
+
+                <div class="topEduc"></div>
                 <div class="side1"></div>
-                <div class="container">
-                  <div>
-                    <p>Education</p>
+                <div class="educContainer">
+                  <div class="midEduc">
                     <button id="addEduc">Add</button>
-                    <div class="line"></div>
+                    <p>Education</p>
+                    <div class="lineEduc"></div>
                     <div id="educationInfo">
                     </div>
                   </div>
                 </div>
             
                 <div class="side2"></div>
-                <div class="bottom"></div>
+                <div class="bottomEduc"></div>
+
+                <div class="topProj"></div>
+                <div class="side3"></div>
+                <div class="projectContainer">
+                  <div class="midProj">
+                    <button id="addProj">Add</button>
+                    <p>Projects</p>
+                    <div class="lineProj"></div>
+                    <div id="projectInfo">
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="side4"></div>
+                <div class="bottomProj"></div>
+
               </div>
             
         </div>
 
 
-        <!-- <div id="inputEduc">
-            <div class="box">
-                <h2>Add Education</h2>
-                <form id="formEduc">
-                    <input id="inputEducName" type="text" placeholder="School">
-                    <input id="inputEducLevel" type="text" placeholder="Level">
-                    <input id="inputEducLogo" type="text" placeholder="School logo url">
-                    <input id="inputEducStart" type="text" placeholder="Year start">
-                    <input id="inputEducEnd" type="text" placeholder="Year end">
-                    <input id="inputAddEduc" type="submit" name="" value="Add">
-                    <input class="inputCancel" type="submit" name="" value="Cancel">
-                </form>
+        
+
+        <div id="introModal" class="modalIntro">
+            <div class="modalIntro-content">
+
+                <div class="modalIntro-header">
+                    <span class="closeBtnIntro">&times;</span>
+                    <h2>Edit Introduction</h2>
+                </div>
+                
+                <div class="modalIntro-body">
+                    <form id="formIntro"  required>
+                        <textarea id="inputIntro" placeholder="Type here"></textarea>
+                    </form>
+                </div>
+
+                <div class="modalIntro-footer">
+                    <input id="inputEditIntro" type="submit" name="" value="Edit">
+                </div>
+                
             </div>
-        </div> -->
+        </div>
+
+        <div id="contactModal" class="modalContact">
+            <div class="modalContact-content">
+
+                <div class="modalContact-header">
+                    <span class="closeBtnContact">&times;</span>
+                    <h2>Edit Contacts</h2>
+                </div>
+                
+                <div class="modalContact-body">
+                    <form id="formContact">
+                        <input id="inputContactSite" type="text" placeholder="Contact platform">
+                        <input id="inputContactUser" type="text" placeholder="Contact username">
+                        <input id="inputContactLink" type="text" placeholder="Link of contact">
+                        <input id="inputContactLogo" type="text" placeholder="Logo link of contact platform">
+                    </form>
+                </div>
+
+                <div class="modalContact-footer">
+                    <input id="inputEditContact" type="submit" name="" value="Edit">
+                </div>
+                
+            </div>
+        </div>
+
+        
+        <div id="orgModal" class="modalAddOrg">
+            <div class="modalAddOrg-content">
+
+                <div class="modalAddOrg-header">
+                    <span class="closeBtnOrg">&times;</span>
+                    <h2>Add Education</h2>
+                </div>
+                
+                <div class="modalAddOrg-body">
+                    <form id="formAddOrg">
+                        <input id="inputOrgName" type="text" placeholder="Name of Organization" required>
+                        <input id="inputOrgPos" type="text" placeholder="Position in organization">
+                        <input id="inputOrgLogo" type="text" placeholder="Logo link image of organization (url)">
+                    </form>
+                </div>
+
+                <div class="modalAddOrg-footer">
+                    <input id="inputAddOrg" type="submit" name="" value="Add">
+                </div>
+                
+            </div>
+        </div>
 
 
-        <!-- <button id="modalBtn" class="button">Add</button> -->
+        <div id="hobbyModal" class="modalAddHobby">
+            <div class="modalAddHobby-content">
 
-        <div id="simpleModal" class="modal">
+                <div class="modalAddHobby-header">
+                    <span class="closeBtnHobby">&times;</span>
+                    <h2>Add Hobby</h2>
+                </div>
+                
+                <div class="modalAddHobby-body">
+                    <form id="formAddHobby">
+                        <input id="inputHobbyName" type="text" placeholder="Name of hobby">
+                        <input id="inputHobbyLogo" type="text" placeholder="Logo link image of hobby (url)">
+                    </form>
+                </div>
+
+                <div class="modalAddHobby-footer">
+                    <input id="inputAddHobby" type="submit" name="" value="Add">
+                </div>
+                
+            </div>
+        </div>
+        
+    
+        <div id="educModal" class="modal">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -83,17 +216,42 @@
                 </div>
                 
                 <div class="modal-body">
-                    <form id="formEduc">
+                    <form id="formAddEduc">
                         <input id="inputEducName" type="text" placeholder="School">
                         <input id="inputEducLevel" type="text" placeholder="Level">
                         <input id="inputEducLogo" type="text" placeholder="School logo url">
-                        <input id="inputEducStart" type="text" placeholder="Year start">
-                        <input id="inputEducEnd" type="text" placeholder="Year end">
+                        <input id="inputEducStart" type="number" placeholder="Year start">
+                        <input id="inputEducEnd" type="number" placeholder="Year end">
                     </form>
                 </div>
 
                 <div class="modal-footer">
                     <input id="inputAddEduc" type="submit" name="" value="Add">
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="projModal" class="modalAddProject">
+            <div class="modalAddProject-content">
+
+                <div class="modalAddProject-header">
+                    <span class="closeBtnProj">&times;</span>
+                    <h2>Add Project</h2>
+                </div>
+                
+                <div class="modalAddProject-body">
+                    <form id="formAddProj">
+                        <input id="inputProjName" type="text" placeholder="Project name">
+                        <textarea id="inputProjDesc" type="text" placeholder="Description"></textarea>
+                        <input id="inputProjType" type="text" placeholder="What type of programming language used">
+                        <input id="inputProjLink" type="text" placeholder="Link to project">
+                        <input id="inputProjYear" type="number" placeholder="Year created">
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <input id="inputAddProj" type="submit" name="" value="Add">
                 </div>
                 
             </div>

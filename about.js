@@ -32,8 +32,8 @@
   db.collection("organizations").get().then((snapshot) => {
     snapshot.forEach((doc) => {
       document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${doc.data().logo}">
-      <span id="orgName">${doc.data().name}</span>
-      <span id="orgPosition">${doc.data().position}</span>`;
+      <div id="orgName">${doc.data().name}</div>
+      <div id="orgPosition">${doc.data().position}</div><br>`;
 
     });
   });
@@ -51,7 +51,4 @@
       document.getElementById('hobbiesAbout').innerHTML+=`<img class="hobbiesImg" src= "${doc.data().logo}">`;  
     });
   });
-//   db.collection("others").doc("image").get().then((doc) => {
-//       document.getElementById('img_github').innerHTML+=`<img src="${doc.data().github}">${doc.data().github}</img>`;
-//   });
 

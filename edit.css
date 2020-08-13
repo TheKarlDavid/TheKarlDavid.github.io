@@ -1,9 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" );
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Oswald&display=swap" );
+
 *{
     margin: 0;
     padding: 0;
     user-select: none;
-    box-sizing: border-box;
   }
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    padding: 40px;
+    background: rgb(0,0,0,0.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
 
 #bodyLogin{
     display: block;
@@ -19,26 +37,12 @@
     z-index: 100;
 }
 
-/* .box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    padding: 40px;
-    background: rgb(0,0,0,0.8);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgb(0,0,0,0.5);
-    border-radius: 10px;
-} */
-
-/* .box h3{
+.box h3{
     margin: 0 0 30px;
     padding: 0;
     color: white;
     text-align: center;
-    font-weight: 700;
-} */
+}
 
 .box .inputBox{
     position: relative;
@@ -102,6 +106,7 @@
 /* NAV BAR */
 
 nav {
+    margin: 0;
     position: fixed;
     width: 100%;
     background: #1b1b1b;
@@ -129,49 +134,290 @@ nav {
     color: aqua;
   }
 
+/* FOR ABOUT  */
+.aboutMain{
+    padding-top: 50px;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px 800px 200px 1fr;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(148,187,233,1) 50%, rgba(238,174,202,1) 100%);
+    
+}
+
+p{
+    color: #ab2324;
+}
+
+#karlImg{
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+
+.intro{
+    color: black;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 80px;
+    margin-top: 100px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.lineAbout{
+    height: 8px;
+    width: 100%;
+    background-color: #00088a;
+    margin: 15px 0px;
+
+}
+
+#introAbout{
+    text-align: left;
+    font-size: 25px;
+    text-transform: none;
+    font-weight: 500;
+
+}
+
+.contacts{
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px;
+    margin-top: 100px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#contactAbout{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-transform: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+} 
+
+#contactAbout a{
+    padding: 15px;
+}
+
+.organizations{
+    grid-column: 1/3;
+    grid-row: 3/4;
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 70px;
+    display: flex;
+
+    justify-content: center;
+
+}
+
+#org{
+    position: relative;
+    top:30px;
+}
+
+div #orgAbout{
+    grid-column: 1/2;
+    grid-row: 4/5;
+
+    text-transform: none;
+    text-align: left;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 30px;
+} 
+
+.orgImg{
+    margin: 15px;
+    height: 65px;
+    width: 65px;
+    align-items: center;
+    
+    
+}
+
+#orgName{
+    display: inline-block;
+    position: relative;
+    bottom: 36px;
+}
+
+#orgPosition{
+    display: inline-block;
+    position: relative;
+    bottom: 36px; 
+    color: maroon;
+    
+}
+
+#orgs{
+    justify-content: center;
+}
+
+.skills{
+    grid-column: 1/2;
+    grid-row: 4/5;
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 50px;
+}
+
+#skillsAbout{
+    grid-column: 1/2;
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+    text-transform: none;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 500;
+} 
+
+.skillLevel{
+    background-color: darkseagreens;
+    color: maroon;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#skillsAbout div{
+    padding: 10px;
+}
+
+.hobbies{
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 50px;
+}
+
+#hobbiesAbout{
+    text-align: left;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 10px 50px;
+    grid-column: 2/3;
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    
+}
+
+.hobbiesImg{
+    height: 55px;
+    width: 55px;
+    justify-self: center;
+}
+
+#skillsAbout div::first-letter, 
+#hobbiesAbout div::first-letter,
+#orgPosition::first-letter,
+#orgName::first-letter{
+    text-transform: capitalize;
+}
+
+
+
+
 /* Education */
 .editMain{
     display: grid;
     grid-template-columns: 20% 1fr 20%;
-    grid-template-rows: 84px 1fr 15px;
+    grid-template-rows: 1fr 20px 1fr 20px 20px 1fr 20px;
     height: 100%;
 }
 
 
-.top{
+.topEduc{
     grid-column: 1/4;
-    grid-row: 1/2;
-    height: 84px;
+    grid-row: 2/3;
+    height: 20px;
     width: 100%;
     background: rgba(131,58,180,1);  
 }
 
 .side1{
     grid-column: 1/2;
-    grid-row: 2/3;
-    background: rgb(34,193,195);
+    grid-row: 3/4;
     background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(253,29,29,1) 50%,rgba(131,58,180,1) 100%);
     
 }
 
 .side2{
     grid-column: 3/4;
-    grid-row: 2/3;
-    background: rgb(34,193,195);
+    grid-row: 3/4;
     background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(253,29,29,1) 50%,rgba(131,58,180,1) 100%);
 }
 
-.bottom{
+.bottomEduc{
     grid-column: 1/4;
-    grid-row: 3/4;
-    height: 15px;
+    grid-row: 4/5;
+    height: 20px;
     width: 100%;
     background: rgba(252,176,69,1);
 }
 
-.container{
+.topProj{
+    grid-column: 1/4;
+    grid-row: 5/6;
+    height: 20px;
+    width: 100%;
+    background: rgba(252,176,69,1);  
+}
+
+.side3{
+    grid-column: 1/2;
+    grid-row: 5/8;
+    background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,rgba(252,176,69,1) 100%);
+}
+
+.side4{
+    grid-column: 3/4;
+    grid-row: 5/8;
+    background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,rgba(252,176,69,1) 100%);
+    
+}
+
+.bottomProj{
+    grid-column: 1/4;
+    grid-row: 7/8;
+    height: 20px;
+    width: 100%;
+    background: rgba(131,58,180,1);
+}
+
+.educContainer{
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 3/4;
 
     font-family: 'Source Serif Pro', serif;
     font-size: 50px;
@@ -185,7 +431,7 @@ nav {
     
 }
 
-.line{
+.lineEduc{
     height: 8px;
     width: 100%;
     background: linear-gradient(45deg,#C5B358,  #DAA520);
@@ -235,12 +481,686 @@ nav {
     
 }
 
+.midEduc p{
+    color: #996515; 
+}
 
+.midProj p{
+    color: midnightblue; 
+}
+
+/* Projects */
+.projectContainer{
+    grid-column: 2/3;
+    grid-row: 6/7;
+
+    font-family: "Major Mono Display", monospace;
+    font-size: 50px;
+    font-weight: bold;
+    color: midnightblue;
+    padding: 30px;
+      
+}
+
+.lineProj{
+    height: 8px;
+    width: 100%;
+    background-color: black;
+    margin: 15px 0px;
+    opacity: 1;
+
+}
+
+#projectInfo{
+    padding: 10px;
+    border: solid 5px black;
+    opacity: 1;
+
+    
+}
+
+
+#projectInfo a{
+    color: navy; 
+    text-decoration: none;
+}
+
+.projName{
+    font-family: "Major Mono Display", monospace;
+    font-size: 40px;
+}
+
+.projDesc{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    color: darkblue;
+}
+
+.projType, .projYear{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    color: indigo;
+}
+
+
+/* BUTTONS ABOUT */
+ /*EDIT INTRO*/
+#editIntro{
+    display: inline;
+    position: relative;
+    bottom: -50px;
+    left: 40%;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 15px;
+
+    background-color:#1717f9; 
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+    
+}
+
+#editIntro:hover{
+    background-color:#090979;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+
+  .modalIntro{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modalIntro-content{
+    background-color: #f4f4f4;
+    margin: 15% auto;
+    padding: 18px;
+    width: 55%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+     0 7px 20px 0 rgba(0,0,0,0.17);
+
+    animation-name: modalopenIntro;
+    animation-duration: 1s;
+}
+
+.modalIntro-header h2{
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modalIntro-header{
+  background:radial-gradient(circle, #5f5fff 0%,  #090979 100%);
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+}
+
+.modalIntro-body{
+    padding: 10px 20px;
+}
+
+.modalIntro-footer{
+    color: white;
+    text-align: center;
+}
+
+#formIntro textarea{
+    padding: 5px;
+    width: 100%;
+    height: 250px;
+    margin: 5px;
+    font-size:1.4em;
+    font-family:sans-serif;
+}
+
+
+#inputEditIntro{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    background:#1717f9;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+  }
+
+  #inputEditIntro:hover{
+    background: #090979;
+  }
+
+  .closeBtnIntro{
+    margin: 0;
+    color: #fff;
+    float: right;
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.closeBtnIntro:hover, .closeBtnIntro:focus{
+    color: rgba(253,29,29,1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopenIntro{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/*EDIT CONTACT LINKS*/
+
+.editContact{
+    display: inline;
+    position: relative;
+    bottom: -70px;
+    left: 40%;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 15px;
+
+    background-color:#1717f9; 
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+    
+}
+
+.editContact:hover{
+    background-color:#090979;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+
+
+  .modalContact{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modalContact-content{
+    background-color: #f4f4f4;
+    margin: 15% auto;
+    padding: 18px;
+    width: 55%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+     0 7px 20px 0 rgba(0,0,0,0.17);
+
+    animation-name: modalopenContact;
+    animation-duration: 1s;
+}
+
+.modalContact-header h2{
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modalContact-header{
+  background:radial-gradient(circle, #3333ff 0%,  #090979 100%);
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+}
+
+.modalContact-body{
+    padding: 10px 20px;
+}
+
+.modalContact-footer{
+    color: white;
+    text-align: center;
+}
+
+#formContact input{
+    font-size: 18px;
+      padding: 5px;
+      width: 100%;
+      height: 50px;
+      margin: 5px;
+}
+
+
+#inputEditContact{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    background:#1717f9;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+  }
+
+  #inputEditContact:hover{
+    background: #090979;
+  }
+
+  .closeBtnContact{
+    margin: 0;
+    color: #fff;
+    float: right;
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.closeBtnContact:hover, .closeBtnContact:focus{
+    color: rgba(253,29,29,1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopenContact{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+/* MODAL ADD ORG */
+.modalAddOrg{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modalAddOrg-content{
+    background-color: #f4f4f4;
+    margin: 15% auto;
+    padding: 18px;
+    width: 55%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+     0 7px 20px 0 rgba(0,0,0,0.17);
+
+    animation-name: modalopenOrg;
+    animation-duration: 1s;
+}
+
+.modalAddOrg-header h2{
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modalAddOrg-header{
+    background:radial-gradient(circle, rgba(112,0,187) 0%,  rgb(194,103,255) 100%);
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+}
+
+.modalAddOrg-body{
+    padding: 10px 20px;
+}
+
+.modalAddOrg-footer{
+    color: white;
+    text-align: center;
+}
+
+#formAddOrg input{
+    font-size: 18px;
+      padding: 5px;
+      width: 100%;
+      height: 50px;
+      margin: 5px;
+}
+
+
+#inputAddOrg{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    background: rgb(141,74,186);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+  }
+
+  #inputAddOrg:hover{
+    background: rgba(112,0,187);
+  }
+
+  .closeBtnOrg{
+    margin: 0;
+    color: #fff;
+    float: right;
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.closeBtnOrg:hover, .closeBtnOrg:focus{
+    color: rgba(253,29,29,1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopenOrg{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+
+#addOrg{
+    display: inline;
+    position: relative;
+    height:40%;
+    right: 0%;
+    bottom: 16%;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin: 0;
+
+    background-color:rgb(141,74,186);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+}
+
+#addOrg:hover{
+    background-color:rgba(112,0,187);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.delBtnOrg{
+    position: relative;
+    bottom: 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px;
+
+    background-color:rgb(255,62,62);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+
+}
+
+.delBtnOrg:hover{
+    background-color:rgba(227,0,0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+
+
+  /* MODAL ADD HOBBY */
+.modalAddHobby{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modalAddHobby-content{
+    background-color: #f4f4f4;
+    margin: 15% auto;
+    padding: 18px;
+    width: 55%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+     0 7px 20px 0 rgba(0,0,0,0.17);
+
+    animation-name: modalopenHobby;
+    animation-duration: 1s;
+}
+
+.modalAddHobby-header h2{
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modalAddHobby-header{
+    background:radial-gradient(circle, rgba(112,0,187) 0%,  rgb(194,103,255) 100%);
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+}
+
+.modalAddHobby-body{
+    padding: 10px 20px;
+}
+
+.modalAddHobby-footer{
+    color: white;
+    text-align: center;
+}
+
+#formAddHobby input{
+    font-size: 18px;
+      padding: 5px;
+      width: 100%;
+      height: 50px;
+      margin: 5px;
+}
+
+
+#inputAddHobby{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    background: rgb(141,74,186);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+  }
+
+  #inputAddHobby:hover{
+    background: rgba(112,0,187);
+  }
+
+  .closeBtnHobby{
+    margin: 0;
+    color: #fff;
+    float: right;
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.closeBtnHobby:hover, .closeBtnHobby:focus{
+    color: rgba(253,29,29,1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopenHobby{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+#addHobby{
+    display: inline;
+    position: relative;
+    bottom: -48px;
+    left: 32%;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin: 0;
+
+    background-color:rgb(141,74,186);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+}
+
+#addHobby:hover{
+    background-color:rgba(112,0,187);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.delBtnHobby{
+    grid-column: 3/4;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 12px;
+    width: 60%;
+    margin-left: 50px;
+
+    background-color:rgb(255,62,62);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+
+}
+
+.delBtnHobby:hover{
+    background-color:rgba(227,0,0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+
+  #addSkill{
+    visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin: 0;
+
+    background-color:rgb(141,74,186);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+}
+
+
+/* BUTTONS EDUC */
 #addEduc{
     display: inline;
-    position: absolute;
-    top: 16%;
-    left: 70%;
+    position: relative;
+    bottom: -50px;
+    left: 40%;
     cursor: pointer;
     font-size: 18px;
     text-transform: uppercase;
@@ -263,7 +1183,7 @@ nav {
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
 
-.delButton{
+.delBtnEduc{
     position: relative;
     left: 44%;
     text-transform: uppercase;
@@ -282,30 +1202,18 @@ nav {
 
 }
 
-.delButton:hover{
+.delBtnEduc:hover{
     background-color:rgba(227,0,0);
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
-/* 
-  #inputEduc{
-     display: none;
-  } */
 
-  #formEduc input{
-      font-size: 15px;
+  #formAddEduc input{
+      font-size: 18px;
       padding: 5px;
       width: 100%;
       height: 50px;
       margin: 5px;
   }
-
-  /* h2{
-    padding: 0;
-    color: white;
-    text-align: center;
-    font-weight: 700;
-
-  } */
 
   #inputAddEduc{
     background: transparent;
@@ -328,24 +1236,6 @@ nav {
   #inputAddEduc:hover{
     background: rgba(112,0,187);
   }
-/* 
-  .inputCancel{ 
-    background: rgb(252,176,69) !important;
-  } */
-
-
-
-
-  /* .button{
-      background: coral;
-      padding: 1em 2em;
-      color: white;
-      border: 0;
-  }
-
-  .button:hover{
-      background: #333;
-  } */
 
   .modal{
       font-family: Arial, Helvetica, sans-serif;
@@ -383,7 +1273,7 @@ nav {
   }
 
   .modal-header{
-    background-color:rgba(112,0,187);
+      background:radial-gradient(circle, rgba(112,0,187) 0%,  rgb(194,103,255) 100%);
       border-radius: 5px;
       padding: 15px;
       color: white;
@@ -420,6 +1310,177 @@ nav {
           opacity: 1;
       }
   }
+  
+
+  /* BUTTONS PROJ */
+#addProj{
+    display: inline;
+    position: relative;
+    bottom: -50px;
+    left: 86%;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 15px;
+
+    background-color:rgb(141,74,186);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+    
+    
+
+}
+
+#addProj:hover{
+    background-color:rgba(112,0,187);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+.delBtnProj{
+    position: relative;
+    left: 84%;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px;
+
+    background-color:rgb(255,62,62);
+    border-color: white;
+    color:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+
+}
+
+.delBtnProj:hover{
+    background-color:rgba(227,0,0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  #formAddProj input{
+      font-size: 18px;
+      padding: 5px;
+      width: 100%;
+      height: 50px;
+      margin: 5px;
+  }
+
+  #formAddProj textarea{
+    padding: 5px;
+    width: 100%;
+    height: 90px;
+    margin: 5px;
+    /* font-size:1.4em; */
+    font-size: 18px;
+    margin: 5px;
+}
+  #inputAddProj{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    background: rgb(141,74,186);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+  }
+
+  #inputAddProj:hover{
+    background: rgba(112,0,187);
+  }
+
+  .modalAddProject{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+  }
+
+  .modalAddProject-content{
+      background-color: #f4f4f4;
+      margin: 15% auto;
+      padding: 18px;
+      width: 55%;
+      box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+       0 7px 20px 0 rgba(0,0,0,0.17);
+
+      animation-name: modalopenProj;
+      animation-duration: 1s;
+  }
+
+  .modalAddProject-header h2{
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+  }
+
+  .modalAddProject-header{
+      background:radial-gradient(circle, rgba(112,0,187) 0%,  rgb(194,103,255) 100%);
+      border-radius: 5px;
+      padding: 15px;
+      color: white;
+  }
+
+  .modalAddProject-body{
+      padding: 10px 20px;
+  }
+
+  .modalAddProject-footer{
+      color: white;
+      text-align: center;
+  }
+
+  .closeBtnProj{
+      margin: 0;
+      color: #fff;
+      float: right;
+      font-size: 30px;
+      padding-top: 5px;
+  }
+
+  .closeBtnProj:hover, .closeBtnProj:focus{
+      color: rgba(253,29,29,1);
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  @keyframes modalopenProj{
+      from{
+          opacity: 0;
+      }
+      to{
+          opacity: 1;
+      }
+  }
+  
+
+
+
   
 
 

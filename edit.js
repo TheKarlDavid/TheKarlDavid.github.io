@@ -16,39 +16,39 @@ var firebaseConfig = {
   
 // LOGIN
 
-//   document.getElementById("login").addEventListener("click", function(e){
-//     e.preventDefault();
+  document.getElementById("login").addEventListener("click", function(e){
+    e.preventDefault();
 
-//     let email = $("#email").val()
-//     let password = $("#password").val()
+    let email = $("#email").val()
+    let password = $("#password").val()
 
-//     // console.log("email is "+email+" and pass is "+password)
+    // console.log("email is "+email+" and pass is "+password)
 
-//     firebase
-//       .auth()
-//       .signInWithEmailAndPassword(email, password)
-//       .then(function (user) {
-//         console.log("user signed in");
-//         // document.getElementById("bodyLogin").style.display="none"
-//         $( "#bodyLogin" ).hide();
-//         $( "#bodyEdit" ).show();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(function (user) {
+        console.log("user signed in");
+        // document.getElementById("bodyLogin").style.display="none"
+        $( "#bodyLogin" ).hide();
+        $( "#bodyEdit" ).show();
   
-//         var user = firebase.auth().currentUser;
-//         if (user != null) {
-//           console.log(user.email);
-//         }
-//       })
-//       .catch(function (error) {
-//         if (error.code == "auth/wrong-password") {
-//         //   alert("wrong password");
-//         // console.log("wrong password")
-//           document.getElementById("warning").style.visibility="visible"
-//         } else {
-//           alert(error.message);
-//           document.getElementById("warning").style.visibility="visible"
-//         }
-//     });
-// })
+        var user = firebase.auth().currentUser;
+        if (user != null) {
+          console.log(user.email);
+        }
+      })
+      .catch(function (error) {
+        if (error.code == "auth/wrong-password") {
+        //   alert("wrong password");
+        // console.log("wrong password")
+          document.getElementById("warning").style.visibility="visible"
+        } else {
+          alert(error.message);
+          document.getElementById("warning").style.visibility="visible"
+        }
+    });
+})
 
 
 
@@ -132,8 +132,8 @@ db.collection("hobbies").get().then((snapshot) => {
         console.log("introduction edited");
         introModal.style.display='none';
         clearEditIntro();
+        windows.location.reload();
       }
-
     });
   }
   
@@ -220,6 +220,7 @@ function openModalOrg(){
     });  
       orgModal.style.display='none';
       clearAddOrg();
+      window.location.reload();
     }
 
   });
@@ -481,6 +482,8 @@ function deleteOrg(elem){
   db.collection("organizations").doc(elem.id).delete().then(function(){
     console.log("Organization item deleted "+elem.id);
     alert("Organization Doc ID:" + elem.id+ " deleted");
+    window.location.reload();
+    // displayData();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -491,6 +494,7 @@ function deleteHobby(elem){
   db.collection("hobbies").doc(elem.id).delete().then(function(){
     console.log("Hobby item deleted "+elem.id);
     alert("Hobby Doc ID:" + elem.id+ " deleted");
+    window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -501,6 +505,7 @@ function deleteEduc(elem){
   db.collection("educations").doc(elem.id).delete().then(function(){
     console.log("Education item deleted "+elem.id);
     alert("Education Doc ID:" + elem.id+ " deleted");
+    window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -511,11 +516,43 @@ function deleteProj(elem){
   db.collection("projects").doc(elem.id).delete().then(function(){
     console.log("Project item deleted "+elem.id);
     alert("Project Doc ID:" + elem.id+ " deleted");
+    window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
   });
 }
+
+
+// function displayData(){
+//   var query = firebase.firestore().collection('projects').orderBy("year_start","desc");
+
+//   query.onSnapshot(function(snapshot){
+//     $("div#bodyEdit").empty();
+
+//     snapshot.docChanges
+
+//     snapshot.docChanges().forEach(function(change) {
+//       if (change.type === "removed") {
+//           console.log(change.doc.id);
+//       }
+//       else {
+//         console.log("a");
+//       }
+//     });
+
+//   });
+// }
+
+// db.collection("projects").orderBy("year_start","desc").get().then((snapshot) => {
+//   snapshot.forEach((doc) => {
+//       document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${doc.id}" onclick=deleteProj(this)>Delete</button>
+//       <div class="projName"><a href="${doc.data().link}">${doc.data().name}</a></div>
+//       <div class="projDesc">${doc.data().desc}</div>
+//       <div class="projType">Type:   ${doc.data().type}</div>
+//       <div class="projYear">Year Created:   ${doc.data().year_start}</div><br>`;
+//   });
+// });
 
 
 

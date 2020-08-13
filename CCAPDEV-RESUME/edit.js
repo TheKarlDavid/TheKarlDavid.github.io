@@ -132,6 +132,7 @@ db.collection("hobbies").get().then((snapshot) => {
         console.log("introduction edited");
         introModal.style.display='none';
         clearEditIntro();
+        displayIntroData();
         // windows.location.reload();
       }
     });
@@ -173,6 +174,7 @@ db.collection("hobbies").get().then((snapshot) => {
           console.log("edited contact");
           contactModal.style.display='none';
           clearEditContact();
+          displayContactData();
         }
       });
   
@@ -534,6 +536,55 @@ function deleteProj(elem){
 
 
 
+
+
+function displayIntroData(){
+  var query = firebase.firestore().collection('others');
+
+  query.onSnapshot(function(snapshot){
+    $("div#introAbout").empty();
+
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === "removed") {
+          console.log(change.doc.id);
+      }
+      else {
+        console.log("a");
+        var data = change.doc.data();
+        document.getElementById('introAbout').innerHTML+=`${data.value}`;
+
+        console.log(data.id);
+        console.log(data.name);
+      }
+    });
+    
+  });
+}
+
+function displayContactData(){
+  var query = firebase.firestore().collection('contacts');
+
+  query.onSnapshot(function(snapshot){
+    $("div#contactAbout").empty();
+
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === "removed") {
+          console.log(change.doc.id);
+      }
+      else {
+        console.log("a");
+        var data = change.doc.data();
+        document.getElementById('contactAbout').innerHTML+=`<button class="editContact"  id="${data.id}" onclick=editContactInfo(this)>Edit</button> 
+        <img class="contact_logo" src="${data.logo}" width="75" height="75px">${data.username}`; 
+        document.getElementById('contactAbout').innerHTML+=`<a href="${data.contact}"${data.username}></a>`; 
+
+        console.log(data.id);
+        console.log(data.name);
+      }
+    });
+    
+  });
+}
 
 function displayOrgData(){
   var query = firebase.firestore().collection('organizations');

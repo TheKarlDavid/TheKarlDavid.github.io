@@ -77,8 +77,8 @@ db.collection("others").get().then((snapshot) => {
 db.collection("contacts").get().then((snapshot) => {
   snapshot.forEach((doc) => {
     document.getElementById('contactAbout').innerHTML+=`<button class="editContact"  id="${doc.id}" onclick=editContactInfo(this)>Edit</button> 
-    <img class="contact_logo" src="${doc.data().logo}" width="75" height="75px">${doc.data().username}`; 
-    document.getElementById('contactAbout').innerHTML+=`<a href="${doc.data().contact}"${doc.data().username}></a>`    
+    <img class="contact_logo" src="${doc.data().logo}" width="75" height="75px">`; 
+    document.getElementById('contactAbout').innerHTML+=`<a href="${doc.data().contact}">${doc.data().username}</a>`    
   });
 });
 
@@ -561,6 +561,8 @@ function displayIntroData(){
   });
 }
 
+
+
 function displayContactData(){
   var query = firebase.firestore().collection('contacts');
 
@@ -575,8 +577,10 @@ function displayContactData(){
         console.log("a");
         var data = change.doc.data();
         document.getElementById('contactAbout').innerHTML+=`<button class="editContact"  id="${data.id}" onclick=editContactInfo(this)>Edit</button> 
-        <img class="contact_logo" src="${data.logo}" width="75" height="75px">${data.username}`; 
-        document.getElementById('contactAbout').innerHTML+=`<a href="${data.contact}"${data.username}></a>`; 
+        <img class="contact_logo" src="${data.logo}" width="75" height="75px">`; 
+        document.getElementById('contactAbout').innerHTML+=`<a href="${data.contact}">${data.username}</a>`;
+
+        
 
         console.log(data.id);
         console.log(data.name);

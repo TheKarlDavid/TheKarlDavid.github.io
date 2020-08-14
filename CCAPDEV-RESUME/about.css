@@ -74,6 +74,9 @@ p{
     text-decoration: none;
     color: black;
     align-items: start;
+    
+    font-size: 25px;
+    margin: 0px;
 }
 
 .organizations{

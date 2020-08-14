@@ -164,7 +164,7 @@ db.collection("hobbies").get().then((snapshot) => {
       editBtnContact.addEventListener('click', function(e){
         e.preventDefault();
         if((inputContact.inputContactUser.value != "") && (inputContact.inputContactUser.value != null)
-          && (inputContact.inputContactLink.value != "") && (inputContact.inputContactLink.value != "")){
+          && (inputContact.inputContactLink.value != "") && (inputContact.inputContactLink.value != null)){
           db.collection("contacts").doc(elem.id).update({
             contact: inputContact.inputContactLink.value,
             logo: inputContact.inputContactLogo.value,
@@ -224,7 +224,6 @@ function openModalOrg(){
     });  
       orgModal.style.display='none';
       clearAddOrg();
-      // window.location.reload();
     }
 
   });
@@ -337,7 +336,6 @@ function outsideClickHobby(e){
   
     //LISTENERS for open click, close click, outside click
     modalBtn.addEventListener('click', openModal);
-    // addBtn.addEventListener('click', addModal);
     closeBtn.addEventListener('click', closeModal);
     window.addEventListener('click', outsideClick);
 
@@ -355,8 +353,8 @@ function outsideClickHobby(e){
             education: inputEduc.inputEducName.value,
             logo: inputEduc.inputEducLogo.value,
             school: inputEduc.inputEducLevel.value,
-            year_start:inputEduc.inputEducStart.value,
-            year_end: inputEduc.inputEducEnd.value
+            year_start:parseInt(inputEduc.inputEducStart.value),
+            year_end: parseInt(inputEduc.inputEducEnd.value)
     
           }).then(function(doc){
             displayEducData();
@@ -421,7 +419,7 @@ function openModalProj(){
         link: inputProj.inputProjLink.value,
         name: inputProj.inputProjName.value,
         type:inputProj.inputProjType.value,
-        year_start: inputProj.inputProjYear.value
+        year_start: parseInt(inputProj.inputProjYear.value)
 
       }).then(function(doc){
         console.log("Document written with UID: ", doc.id); 
@@ -498,7 +496,6 @@ function deleteOrg(elem){
     console.log("Organization item deleted "+elem.id);
     alert("Organization Doc ID:" + elem.id+ " deleted");
     displayOrgData();
-    // window.location.reload();
     
   })
   .catch(function(error){
@@ -511,7 +508,6 @@ function deleteHobby(elem){
     console.log("Hobby item deleted "+elem.id);
     alert("Hobby Doc ID:" + elem.id+ " deleted");
     displayHobbyData();
-    // window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -523,7 +519,6 @@ function deleteEduc(elem){
     console.log("Education item deleted "+elem.id);
     alert("Education Doc ID:" + elem.id+ " deleted");
     displayEducData()
-    // window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -535,7 +530,6 @@ function deleteProj(elem){
     console.log("Project item deleted "+elem.id);
     alert("Project Doc ID:" + elem.id+ " deleted");
     displayProjectData();
-    // window.location.reload();
   })
   .catch(function(error){
       console.log("Error in deleting item :"+error);
@@ -620,17 +614,6 @@ function displayOrgData(){
           <div id="orgPosition">${data.position}</div>
           <button class="delBtnOrg" id="${change.doc.id}" onclick=deleteOrg(this)>Delete</button>`;  
       }
-      // else {
-      //   console.log("a");
-      //   var data = change.doc.data();
-      //   document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${data.logo}">
-      //   <div id="orgName">${data.name}</div>
-      //   <div id="orgPosition">${data.position}</div>
-      //   <button class="delBtnOrg" id="${data.id}" onclick=deleteOrg(this)>Delete</button>`;  
-
-      //   console.log(data.id);
-      //   console.log(data.name);
-      // }
     });
     
   });
@@ -720,8 +703,6 @@ function displayProjectData(){
           <div class="projYear">Year Created:   ${data.year_start}</div><br>`;
       }
       if (change.type === "removed") {
-          // console.log(change.doc.id);
-          // console.log("DELETED HERE");
 
           var data = change.doc.data();
           document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${change.doc.id}" onclick=deleteProj(this)>Delete</button>

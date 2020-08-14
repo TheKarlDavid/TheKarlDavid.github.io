@@ -170,11 +170,13 @@ db.collection("hobbies").get().then((snapshot) => {
             logo: inputContact.inputContactLogo.value,
             name: inputContact.inputContactSite.value,
             username: inputContact.inputContactUser.value
+          }).then(function(){
+            displayContactData();
           })
           console.log("edited contact");
           contactModal.style.display='none';
           clearEditContact();
-          displayContactData();
+          
         }
       });
   
@@ -573,8 +575,19 @@ function displayContactData(){
     $("div#contactAbout").empty();
 
     snapshot.docChanges().forEach(function(change) {
-      if (change.type === "removed") {
-          console.log(change.doc.id);
+      if (change.type === "modified") {
+          // console.log(change.doc.id);
+
+          // console.log("a");
+          // var data = change.doc.data();
+          // document.getElementById('contactAbout').innerHTML+=`<button class="editContact"  id="${data.id}" onclick=editContactInfo(this)>Edit</button> 
+          // <img class="contact_logo" src="${data.logo}" width="75" height="75px">`; 
+          // document.getElementById('contactAbout').innerHTML+=`<a href="${data.contact}">${data.username}</a>`;
+  
+          
+  
+          // console.log(data.id);
+          // console.log(data.name);
       }
       else {
         console.log("a");

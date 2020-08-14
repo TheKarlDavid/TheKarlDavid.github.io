@@ -217,12 +217,13 @@ function openModalOrg(){
         logo: inputOrg.inputOrgLogo.value,
         position: inputOrg.inputOrgPos.value
 
+      }).then(function(doc){
+        displayOrgData();
       }).catch(function(error) {
         console.error("Error adding document: ", error);
     });  
       orgModal.style.display='none';
       clearAddOrg();
-      displayOrgData();
       // window.location.reload();
     }
 
@@ -266,12 +267,14 @@ function openModalHobby(){
         name: inputHobby.inputHobbyName.value,
         logo: inputHobby.inputHobbyLogo.value
 
+      }).then(function(doc){
+        displayHobbyData();
       }).catch(function(error) {
         console.error("Error adding document: ", error);
       });  
       hobbyModal.style.display='none';
       clearAddHobby();
-      displayHobbyData();
+      
     }
 
   });
@@ -345,7 +348,8 @@ function outsideClickHobby(e){
         e.preventDefault();
 
         if(((inputEduc.inputEducName.value != null) && (inputEduc.inputEducName.value != ""))
-          &&((inputEduc.inputEducStart.value != null) && (inputEduc.inputEducStart.value != ""))){
+        &&((inputEduc.inputEducStart.value != null) && (inputEduc.inputEducStart.value != ""))
+        &&((inputEduc.inputEducEnd.value != null) && (inputEduc.inputEducEnd.value != ""))){
           console.log("education added");
           db.collection("educations").add({
             education: inputEduc.inputEducName.value,
@@ -354,12 +358,13 @@ function outsideClickHobby(e){
             year_start:inputEduc.inputEducStart.value,
             year_end: inputEduc.inputEducEnd.value
     
+          }).then(function(doc){
+            displayEducData();
           }).catch(function(error) {
             console.error("Error adding document: ", error);
           });  
           modal.style.display='none';
           clearAddEduc();
-          displayEducData()
         }
 
   
@@ -418,17 +423,21 @@ function openModalProj(){
         type:inputProj.inputProjType.value,
         year_start: inputProj.inputProjYear.value
 
+      }).then(function(doc){
+        console.log("Document written with UID: ", doc.id); 
+        displayProjectData();
       }).catch(function(error) {
         console.error("Error adding document: ", error);
-      });  
+      }); 
       projModal.style.display='none';
       clearAddProj();
-      displayProjectData();
+      
     }
 
 
   });
 }
+
 
 
 function closeModalProj(){
@@ -597,20 +606,31 @@ function displayOrgData(){
     $("div#orgAbout").empty();
 
     snapshot.docChanges().forEach(function(change) {
-      if (change.type === "removed") {
-          console.log(change.doc.id);
-      }
-      else {
-        console.log("a");
+      if (change.type === "added") {
         var data = change.doc.data();
         document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${data.logo}">
         <div id="orgName">${data.name}</div>
         <div id="orgPosition">${data.position}</div>
-        <button class="delBtnOrg" id="${data.id}" onclick=deleteOrg(this)>Delete</button>`;  
-
-        console.log(data.id);
-        console.log(data.name);
+        <button class="delBtnOrg" id="${change.doc.id}" onclick=deleteOrg(this)>Delete</button>`;  
+    }
+      if (change.type === "removed") {
+          var data = change.doc.data();
+          document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${data.logo}">
+          <div id="orgName">${data.name}</div>
+          <div id="orgPosition">${data.position}</div>
+          <button class="delBtnOrg" id="${change.doc.id}" onclick=deleteOrg(this)>Delete</button>`;  
       }
+      // else {
+      //   console.log("a");
+      //   var data = change.doc.data();
+      //   document.getElementById('orgAbout').innerHTML+=`<img class="orgImg" src="${data.logo}">
+      //   <div id="orgName">${data.name}</div>
+      //   <div id="orgPosition">${data.position}</div>
+      //   <button class="delBtnOrg" id="${data.id}" onclick=deleteOrg(this)>Delete</button>`;  
+
+      //   console.log(data.id);
+      //   console.log(data.name);
+      // }
     });
     
   });
@@ -624,18 +644,23 @@ function displayHobbyData(){
 
 
     snapshot.docChanges().forEach(function(change) {
-      if (change.type === "removed") {
-          console.log(change.doc.id);
-      }
-      else {
-        console.log("a");
+      if (change.type === "added") {
         var data = change.doc.data();
         document.getElementById('hobbiesAbout').innerHTML+=`<div>${data.name}</div>`;  
         document.getElementById('hobbiesAbout').innerHTML+=`<img class="hobbiesImg" src= "${data.logo}">`;  
-        document.getElementById('hobbiesAbout').innerHTML+=`<button class="delBtnHobby" id="${data.id}" onclick=deleteHobby(this)>Delete</button>`;
+        document.getElementById('hobbiesAbout').innerHTML+=`<button class="delBtnHobby" id="${change.doc.id}" onclick=deleteHobby(this)>Delete</button>`;
 
         console.log(data.id);
         console.log(data.name);
+      }
+      if (change.type === "removed") {
+          var data = change.doc.data();
+          document.getElementById('hobbiesAbout').innerHTML+=`<div>${data.name}</div>`;  
+          document.getElementById('hobbiesAbout').innerHTML+=`<img class="hobbiesImg" src= "${data.logo}">`;  
+          document.getElementById('hobbiesAbout').innerHTML+=`<button class="delBtnHobby" id="${change.doc.id}" onclick=deleteHobby(this)>Delete</button>`;
+
+          console.log(data.id);
+          console.log(data.name);
       }
     });
     
@@ -650,20 +675,25 @@ function displayEducData(){
 
 
     snapshot.docChanges().forEach(function(change) {
-      if (change.type === "removed") {
-          console.log(change.doc.id);
-      }
-      else {
-        console.log("a");
+      if(change.type=== "added"){
+
         var data = change.doc.data();
-        document.getElementById('educationInfo').innerHTML+=`<button class="delBtnEduc"  id="${data.id}" onclick=deleteEduc(this)>Delete</button>
+        document.getElementById('educationInfo').innerHTML+=`<button class="delBtnEduc"  id="${change.doc.id}" onclick=deleteEduc(this)>Delete</button>
         <div><img class="educ_logo" src="${data.logo}"></div>
         <div class="educName">${data.school}</div>
         <div class="educLevel">${data.education}</div>
         <div class="educYear">A.Y. ${data.year_start} - ${data.year_end}</div><br>`;
+      }
+      
+      if (change.type === "removed") {
 
-        console.log(data.id);
-        console.log(data.name);
+          var data = change.doc.data();
+          document.getElementById('educationInfo').innerHTML+=`<button class="delBtnEduc"  id="${change.doc.id}" onclick=deleteEduc(this)>Delete</button>
+          <div><img class="educ_logo" src="${data.logo}"></div>
+          <div class="educName">${data.school}</div>
+          <div class="educLevel">${data.education}</div>
+          <div class="educYear">A.Y. ${data.year_start} - ${data.year_end}</div><br>`;
+
       }
     });
     
@@ -678,19 +708,27 @@ function displayProjectData(){
 
 
     snapshot.docChanges().forEach(function(change) {
-      if (change.type === "removed") {
-          console.log(change.doc.id);
-      }
-      else {
-        console.log("a");
+      if(change.type=== "added"){
+        console.log("ADDED HERE");
+        console.log(change.doc.id);
+
         var data = change.doc.data();
-        document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${data.id}" onclick=deleteProj(this)>Delete</button>
-        <div class="projName"><a href="${data.link}">${data.name}</a></div>
-        <div class="projDesc">${data.desc}</div>
-        <div class="projType">Type:   ${data.type}</div>
-        <div class="projYear">Year Created:   ${data.year_start}</div><br>`;
-        console.log(data.id);
-        console.log(data.name);
+          document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${change.doc.id}" onclick=deleteProj(this)>Delete</button>
+          <div class="projName"><a href="${data.link}">${data.name}</a></div>
+          <div class="projDesc">${data.desc}</div>
+          <div class="projType">Type:   ${data.type}</div>
+          <div class="projYear">Year Created:   ${data.year_start}</div><br>`;
+      }
+      if (change.type === "removed") {
+          // console.log(change.doc.id);
+          // console.log("DELETED HERE");
+
+          var data = change.doc.data();
+          document.getElementById('projectInfo').innerHTML+=`<button class="delBtnProj"  id="${change.doc.id}" onclick=deleteProj(this)>Delete</button>
+          <div class="projName"><a href="${data.link}">${data.name}</a></div>
+          <div class="projDesc">${data.desc}</div>
+          <div class="projType">Type:   ${data.type}</div>
+          <div class="projYear">Year Created:   ${data.year_start}</div><br>`;
       }
     });
     
